@@ -16,12 +16,14 @@ module YConnect
 
   def config
     @config ||= {
-      client_id: 'dj0zaiZpPVpmRGlVcWptaU0zRiZkPVlXazlPR2wwZG1aMU56UW1jR285TUEtLSZzPWNvbnN1bWVyc2VjcmV0Jng9NWY-',
-      issuer: 'https://auth.login.yahoo.co.jp',
+      client_id:              'dj0zaiZpPVpmRGlVcWptaU0zRiZkPVlXazlPR2wwZG1aMU56UW1jR285TUEtLSZzPWNvbnN1bWVyc2VjcmV0Jng9NWY-',
+      issuer:                 'https://auth.login.yahoo.co.jp',
       authorization_endpoint: 'https://auth.login.yahoo.co.jp/yconnect/v1/authorization',
-      check_token_endpoint: 'https://auth.login.yahoo.co.jp/yconnect/v1/checktoken',
-      user_info_endpoint: 'https://userinfo.yahooapis.jp/yconnect/v1/attribute',
-      redirect_uri: 'yj-connect://'
+      check_token_endpoint:   'https://auth.login.yahoo.co.jp/yconnect/v1/checktoken',
+      user_info_endpoint:     'https://userinfo.yahooapis.jp/yconnect/v1/attribute',
+      redirect_uri:           'yj-connect://',
+      response_type:          [:token, :id_token],
+      scope:                  [:openid, :email, :profile, :address]
     }
   end
 
@@ -33,13 +35,13 @@ module YConnect
   def require_authorization!
     App.open_url build_endpoint(
       :authorization_endpoint,
-      client_id: config[:client_id],
-      response_type: [:token, :id_token].collect(&:to_s).join(' '),
-      redirect_uri: config[:redirect_uri],
-      nonce: nonce(:refresh),
-      scope: [:openid, :email, :profile, :address],
-      display: :touch,
-      # prompt: :consent # NOTE: uncomment this if you want to see YConnect consent page each time.
+      client_id:     config[:client_id],
+      response_type: config[:response_type],
+      redirect_uri:  config[:redirect_uri],
+      scope:         config[:scope],
+      nonce:         nonce(:refresh),
+      display:       :touch,
+      prompt:        :consent
     )
   end
 
@@ -65,9 +67,9 @@ module YConnect
 
   def valid_id_token?(id_token)
     (
-      id_token['iss'] == config[:issuer] &&
+      id_token['iss']   == config[:issuer] &&
       id_token['nonce'] == nonce &&
-      id_token['aud'] == config[:client_id] &&
+      id_token['aud']   == config[:client_id] &&
       Time.at(id_token['exp'].to_i) > Time.now &&
       Time.at(id_token['iat'].to_i) < Time.now
     )

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Y0n-4f-Pq1">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="gLt-12-cpC">
+            <objects>
+                <navigationController storyboardIdentifier="" definesPresentationContext="YES" navigationBarHidden="YES" id="Y0n-4f-Pq1" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jSg-A5-VHo">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="pPu-hT-g7E" kind="relationship" relationship="rootViewController" id="g2e-9a-O5R"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nba-eE-RVM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-453" y="-245"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="Ok8-pc-Urr">
+            <objects>
+                <viewController id="pPu-hT-g7E" customClass="RootViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DFd-gc-2pF">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NPG-XZ-UVz">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="186" id="qAZ-JD-hwF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button" image="btnLLogin.gif">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="connect:" destination="pPu-hT-g7E" eventType="touchUpInside" id="oaa-za-ShJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NPG-XZ-UVz" firstAttribute="centerX" secondItem="DFd-gc-2pF" secondAttribute="centerX" type="default" id="lEs-07-j22"/>
+                            <constraint firstItem="NPG-XZ-UVz" firstAttribute="centerY" secondItem="DFd-gc-2pF" secondAttribute="centerY" type="default" id="wnk-Sn-Vq7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="XBq-Lx-xfb"/>
+                    <connections>
+                        <outlet property="connect_button" destination="NPG-XZ-UVz" id="hAo-N0-6Og"/>
+                        <segue destination="bmR-Jh-jJ4" kind="push" id="Yoj-Pt-9KI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ieG-eG-PHn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="95" y="-245"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="8Cm-oa-Trt">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" id="bmR-Jh-jJ4" customClass="ProfileViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ctv-Jv-A0U">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hef-Qy-qko">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logout:" destination="bmR-Jh-jJ4" eventType="touchUpInside" id="cel-hP-GDW"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hello, YConnect!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKg-Wg-bJR">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="klr-AZ-7xd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="User Info" translatesAutoresizingMaskIntoConstraints="NO" id="hRw-Qy-80x">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xKg-Wg-bJR" firstAttribute="top" secondItem="ctv-Jv-A0U" secondAttribute="top" constant="20" symbolic="YES" type="default" id="5yM-3p-xO9"/>
+                            <constraint firstAttribute="bottom" secondItem="hef-Qy-qko" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="9fh-2e-UHq"/>
+                            <constraint firstAttribute="trailing" secondItem="hef-Qy-qko" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="H2y-Pj-8Mc"/>
+                            <constraint firstItem="hef-Qy-qko" firstAttribute="top" secondItem="hRw-Qy-80x" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Q89-gw-Vdz"/>
+                            <constraint firstItem="hRw-Qy-80x" firstAttribute="leading" secondItem="ctv-Jv-A0U" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Qvl-hC-9es"/>
+                            <constraint firstAttribute="trailing" secondItem="hRw-Qy-80x" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Td4-1n-qxm"/>
+                            <constraint firstItem="xKg-Wg-bJR" firstAttribute="leading" secondItem="ctv-Jv-A0U" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="evd-sN-9G6"/>
+                            <constraint firstItem="hRw-Qy-80x" firstAttribute="top" secondItem="xKg-Wg-bJR" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="kgJ-fh-4GI"/>
+                            <constraint firstAttribute="trailing" secondItem="xKg-Wg-bJR" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="lSK-bk-yEk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="fen-pX-ti5"/>
+                    <connections>
+                        <outlet property="logout_button" destination="hef-Qy-qko" id="l01-wD-Bkj"/>
+                        <outlet property="title_label" destination="xKg-Wg-bJR" id="qaR-mR-Kn5"/>
+                        <outlet property="user_info_area" destination="hRw-Qy-80x" id="Ire-Sn-2iw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DOu-ei-UOM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="634" y="-245"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="btnLLogin.gif" width="186" height="38"/>
+    </resources>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ProfileViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logout:"/>
+                <relationship kind="outlet" name="logout_button" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="title_label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="user_info_area" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="RootViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="connect:"/>
+                <relationship kind="outlet" name="connect_button" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

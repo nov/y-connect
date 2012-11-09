@@ -38,7 +38,8 @@ module YConnect
       redirect_uri: config[:redirect_uri],
       nonce: nonce(:refresh),
       scope: [:openid, :email, :profile, :address],
-      display: :touch
+      display: :touch,
+      # prompt: :consent # NOTE: uncomment this if you want to see YConnect consent page each time.
     )
   end
 

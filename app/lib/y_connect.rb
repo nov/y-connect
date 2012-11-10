@@ -1,16 +1,3 @@
-# NOTE: quick fix, hope bubble-wrap team accept my pull request soon.
-module BubbleWrap
-  module Persistence
-    module_function
-
-    def []=(key, value)
-      storage.setObject(value, forKey: storage_key(key))
-      storage.synchronize
-      self[key]
-    end
-  end
-end
-
 module YConnect
   module_function
 
@@ -30,6 +17,7 @@ module YConnect
   def nonce(refresh = false)
     App::Persistence[:nonce] = nil if refresh
     App::Persistence[:nonce] ||= NSUUID.UUID.UUIDString
+    App::Persistence[:nonce]
   end
 
   def require_authorization!
